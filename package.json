@@ -1,0 +1,41 @@
+{
+  "name": "vue-rough-notation",
+  "version": "0.1.0",
+  "description": "Vue wrapper for rough-notation",
+  "author": "Leecason",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "main": "dist/vue-rough-notation.js",
+  "module": "dist/vue-rough-notation.esm.js",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8",
+    "not dead"
+  ],
+  "keywords": [
+    "rough-notation",
+    "vue"
+  ],
+  "bugs": {
+    "url": "https://github.com/Leecason/vue-rough-notation/issues"
+  },
+  "homepage": "https://github.com/Leecason/vue-rough-notation#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leecason/vue-rough-notation.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "rough-notation": "^0.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.1",
+    "rollup": "^2.11.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^6.1.0"
+  }
+}
