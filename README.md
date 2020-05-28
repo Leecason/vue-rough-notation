@@ -12,8 +12,16 @@ A Vue wrapper for [RoughNotation](https://roughnotation.com/), a small JavaScrip
 
 ## Installation
 
+NPM:
+
 ```shell
 npm install --save vue-rough-notation
+```
+
+CDN:
+
+```js
+<script src="https://unpkg.com/vue-rough-notation/dist/vue-rough-notation.js"></script>
 ```
 
 ## Usage
