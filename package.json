@@ -9,6 +9,9 @@
   "main": "dist/vue-rough-notation.js",
   "module": "dist/vue-rough-notation.esm.js",
   "unpkg": "dist/vue-rough-notation.js",
+  "files": [
+    "dist/*"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",
