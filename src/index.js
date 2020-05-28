@@ -1,6 +1,6 @@
 import RoughNotation from './component';
 
-export default {
+const VueRoughNotationPlugin = {
   /**
    * install function
    * @param  {Vue} Vue
@@ -10,3 +10,19 @@ export default {
     Vue.component('RoughNotation', RoughNotation);
   },
 };
+
+export default VueRoughNotationPlugin;
+
+;(function autoInstall () {
+  let global;
+
+  if (typeof window !== 'undefined') {
+    globalScope = window;
+  } else if (typeof global !== 'undefined') {
+    globalScope = global;
+  }
+
+  if (globalScope && globalScope.Vue) {
+    globalScope.Vue.use(VueRoughNotationPlugin);
+  }
+})();
