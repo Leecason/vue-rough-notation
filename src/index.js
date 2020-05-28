@@ -14,7 +14,7 @@ const VueRoughNotationPlugin = {
 export default VueRoughNotationPlugin;
 
 ;(function autoInstall () {
-  let global;
+  let globalScope;
 
   if (typeof window !== 'undefined') {
     globalScope = window;
