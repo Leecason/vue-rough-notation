@@ -30,7 +30,7 @@ template:
 
 ```html
 <RoughNotation
-  :show="isShow"
+  :is-show="isShow"
   type="underline"
 >
   <span>This is a text</span>
@@ -43,19 +43,19 @@ Check [configuring-the-annotation](https://github.com/pshihn/rough-notation#conf
 
 **and**
 
-### show
+### isShow
 
-Type: `boolean`
+**Type**: `boolean`
 
-Default: `false`
+**Default**: `false`
 
 Whether draws the annotation.
 
 ### tag
 
-Type: `string`
+**Type**: `string`
 
-Default: `'div'`
+**Default**: `'div'`
 
 String HTML tag name (default: `div`); if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
 

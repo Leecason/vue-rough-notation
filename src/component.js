@@ -27,7 +27,7 @@ export default {
       default: 'div',
     },
 
-    show: {
+    isShow: {
       type: Boolean,
       default: false,
     },
@@ -76,15 +76,11 @@ export default {
       padding: this.padding,
     });
 
-    if (this.show) {
-      this.annotation.show();
-    }
-
-    this.$watch('show', (value) => {
+    this.$watch('isShow', (value) => {
       if (value) {
-        this.annotation.show();
+        this.show();
       } else {
-        this.annotation.hide();
+        this.hide();
       }
     }, { immediate: true });
   },
@@ -94,6 +90,14 @@ export default {
   },
 
   methods: {
+    show () {
+      this.annotation && this.annotation.show();
+    },
+
+    hide () {
+      this.annotation && this.annotation.hide();
+    },
+
     isShowing () {
       return !!(this.annotation && this.annotation.isShowing());
     },
