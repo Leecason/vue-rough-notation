@@ -1,5 +1,9 @@
 # Vue Rough Notation
 
+![npm](https://img.shields.io/npm/v/vue-rough-notation)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/vue-rough-notation)
+![GitHub](https://img.shields.io/github/license/Leecason/vue-rough-notation)
+
 ![Rough Notation logo](https://roughnotation.com/images/social.png)
 
 A Vue wrapper for [RoughNotation](https://roughnotation.com/), a small JavaScript library to create and animate annotations on a web page.
@@ -54,3 +58,7 @@ Type: `string`
 Default: `'div'`
 
 String HTML tag name (default: `div`); if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
+
+## License
+
+[MIT](https://github.com/Leecason/vue-rough-notation/blob/master/LICENSE)
