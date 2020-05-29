@@ -64,9 +64,7 @@ export default {
   },
 
   mounted () {
-    this.el = this.$el;
-
-    this.annotation = annotate(this.el, {
+    this.annotation = annotate(this.$el, {
       type: this.type,
       animate: this.animate,
       animationDuration: this.animationDuration,
@@ -75,6 +73,8 @@ export default {
       strokeWidth: this.strokeWidth,
       padding: this.padding,
     });
+
+    this.$emit('init', this.annotation);
 
     this.$watch('isShow', (value) => {
       if (value) {
