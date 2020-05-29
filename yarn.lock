@@ -441,10 +441,10 @@ rollup@^2.11.2:
   optionalDependencies:
     fsevents "~2.1.2"
 
-rough-notation@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.1.1.tgz#b66d39d70861d31c59a3ab9d45f5308f893e815c"
-  integrity sha512-odOjddiqa9MtwKke7SyQ0DqGJhqIJ3gl2hBOgZiCn9+EMIWPy/KyRnMhGIabHxCafFOucg5rWDBqN1/sMPaPkg==
+rough-notation@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.2.0.tgz#0052ca1c311d2aab37e6471b51fe499df4aa0147"
+  integrity sha512-yqW688SRQFk8VE9kscM+IDZCbsbtHdamcNElrLloMLedxHiOpx2KkPwGsa5hMGW/hUdGEzgLwXBArSdZ0Gl53w==
   dependencies:
     roughjs "^4.3.1"
 
