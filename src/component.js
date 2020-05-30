@@ -9,7 +9,7 @@ const AVAILABLE_TYPES = [
   'crossed-off',
 ];
 
-export default {
+export default (options) => ({
   name: 'RoughNotation',
 
   props: {
@@ -33,32 +33,32 @@ export default {
 
     animate: {
       type: Boolean,
-      default: true,
+      default: () => options.animate,
     },
 
     animationDuration: {
       type: Number,
-      default: 800,
+      default: () => options.animationDuration,
     },
 
     animationDelay: {
       type: Number,
-      default: 0,
+      default: () => options.animationDelay,
     },
 
     color: {
       type: String,
-      default: 'currentColor',
+      default: () => options.color,
     },
 
     strokeWidth: {
       type: Number,
-      default: 1,
+      default: () => options.strokeWidth,
     },
 
     padding: {
       type: Number,
-      default: 5,
+      default: () => options.padding,
     },
   },
 
@@ -111,4 +111,4 @@ export default {
 
     return slot && slot[0];
   },
-};
+});

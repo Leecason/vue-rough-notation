@@ -8,7 +8,18 @@
 
 A Vue wrapper for [RoughNotation](https://roughnotation.com/), a small JavaScript library to create and animate annotations on a web page.
 
-[Visit website to see it in action](https://roughnotation.com/)
+- [Visit website to see it in action](https://roughnotation.com/)
+- [Rough Notation Github](https://github.com/pshihn/rough-notation)
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Global options](#global-options)
+- [Props](#props)
+- [Events](#events)
+- [TODO](#todo)
+- [License](#license)
 
 ## Installation
 
@@ -45,6 +56,35 @@ template:
 </RoughNotation>
 ```
 
+## Global options
+
+The default global options are:
+
+```js
+{
+  // Turn on/off animation when annotating.
+  animate: true,
+  // Duration of the animation in milliseconds.
+  animationDuration: 800,
+  // Delay in animation in milliseconds.
+  animationDelay: 0,
+  // Representing the color of the annotation sketch.
+  color: 'currentColor',
+  // Width of the annotation strokes.
+  strokeWidth: 1,
+  // (in pixels) Padding between the element and roughly where the annotation is drawn.
+  padding: 5,
+}
+```
+
+You can change the options when install:
+
+```js
+import VueRoughNotation from 'vue-rough-notation';
+
+Vue.use(VueRoughNotation, options);
+```
+
 ## Props
 
 ### type
@@ -78,7 +118,7 @@ Whether draws the annotation.
 
 **Required**: `false`
 
-**Default**: `true`
+**Default**: `true` - You can change it when install _(see above)_.
 
 Turn on/off animation when annotating.
 
@@ -88,7 +128,7 @@ Turn on/off animation when annotating.
 
 **Required**: `false`
 
-**Default**: `800`
+**Default**: `800` - You can change it when install _(see above)_.
 
 Duration of the animation in milliseconds.
 
@@ -98,7 +138,7 @@ Duration of the animation in milliseconds.
 
 **Required**: `false`
 
-**Default**: `0`
+**Default**: `0` - You can change it when install _(see above)_.
 
 Delay in animation in milliseconds.
 
@@ -108,7 +148,7 @@ Delay in animation in milliseconds.
 
 **Required**: `false`
 
-**Default**: `currentColor`
+**Default**: `currentColor` - You can change it when install _(see above)_.
 
 Representing the color of the annotation sketch.
 
@@ -118,7 +158,7 @@ Representing the color of the annotation sketch.
 
 **Required**: `false`
 
-**Default**: `1`
+**Default**: `1` - You can change it when install _(see above)_.
 
 Width of the annotation strokes.
 
@@ -128,7 +168,7 @@ Width of the annotation strokes.
 
 **Required**: `false`
 
-**Default**: `5`(in pixels)
+**Default**: `5`(in pixels) - You can change it when install _(see above)_
 
 Padding between the element and roughly where the annotation is drawn.
 
