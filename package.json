@@ -10,8 +10,10 @@
   "module": "dist/vue-rough-notation.esm.js",
   "unpkg": "dist/vue-rough-notation.js",
   "files": [
-    "dist/*"
+    "dist/*",
+    "types/*"
   ],
+  "types": "types/index.d.ts",
   "browserslist": [
     "> 1%",
     "last 2 versions",
@@ -37,10 +39,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@rollup/plugin-babel": "^5.0.2",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-typescript": "^4.1.2",
+    "@types/vue": "^2.0.0",
     "rollup": "^2.11.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^6.1.0"
   }
 }

@@ -1,8 +1,8 @@
 import path from 'path';
-import node from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import cjs from 'rollup-plugin-commonjs';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default () => [
   getConfig({
@@ -27,9 +27,12 @@ function getConfig ({
       format,
     },
     plugins: [
-      node(),
-      cjs(),
-      babel({ runtimeHelpers: true }),
+      resolve(),
+      commonjs(),
+      babel({
+        babelHelpers: 'runtime',
+        plugins: ['@babel/plugin-transform-runtime'],
+      }),
       terser(),
     ],
   };

@@ -1,5 +1,4 @@
-// import { annotate } from 'rough-notation';
-import { annotate } from '../node_modules/rough-notation/lib/rough-notation.js';
+import { annotate } from 'rough-notation';
 
 const AVAILABLE_TYPES = [
   'underline',
