@@ -6,13 +6,11 @@
 
 ![Rough Notation logo](https://roughnotation.com/images/social.png)
 
-A Vue wrapper for [RoughNotation](https://roughnotation.com/), a small JavaScript library to create and animate annotations on a web page.
-
-- [Visit website to see it in action](https://roughnotation.com/)
-- [Rough Notation Github](https://github.com/pshihn/rough-notation)
+A Vue wrapper for [RoughNotation](https://github.com/pshihn/rough-notation), a small JavaScript library to create and animate annotations on a web page.
 
 ## Table of Contents
 
+- [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Global options](#global-options)
@@ -20,6 +18,10 @@ A Vue wrapper for [RoughNotation](https://roughnotation.com/), a small JavaScrip
 - [Events](#events)
 - [TODO](#todo)
 - [License](#license)
+
+## Demo
+
+[Demo](https://codesandbox.io/s/vue-rough-notation-q8cxq)
 
 ## Installation
 
