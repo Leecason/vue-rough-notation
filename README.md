@@ -1,6 +1,7 @@
 # Vue Rough Notation
 
 ![npm](https://img.shields.io/npm/v/vue-rough-notation)
+![CircleCI](https://img.shields.io/circleci/build/github/Leecason/vue-rough-notation)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/vue-rough-notation)
 ![GitHub](https://img.shields.io/github/license/Leecason/vue-rough-notation)
 
@@ -180,9 +181,9 @@ Padding between the element and roughly where the annotation is drawn.
 
 **Required**: `false`
 
-**Default**: `'div'`
+**Default**: `undefined'`
 
-String HTML tag name (default: `div`); if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
+String HTML tag name; if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
 
 ## Events
 
@@ -195,7 +196,6 @@ Called when the component is initialized.
 ## TODO
 
 - [ ] Annotation Group
-- [ ] Demo pages
 
 ## License
 
