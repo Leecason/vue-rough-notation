@@ -36,7 +36,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "rough-notation": "^0.2.0"
+    "rough-notation": "^0.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.1",

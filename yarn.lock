@@ -3571,11 +3571,6 @@ pascalcase@^0.1.1:
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
-path-data-parser@0.1.0, path-data-parser@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/path-data-parser/-/path-data-parser-0.1.0.tgz#8f5ba5cc70fc7becb3dcefaea08e2659aba60b8c"
-  integrity sha512-NOnmBpt5Y2RWbuv0LMzsayp3lVylAHLPUTut412ZA3l+C4uw4ZVkQbjShYCQ8TCpUMdPapr4YjUqLYD6v68j+w==
-
 path-exists@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/path-exists/-/path-exists-3.0.0.tgz#ce0ebeaa5f78cb18925ea7d810d7b59b010fd515"
@@ -3636,19 +3631,6 @@ pkg-up@^2.0.0:
   integrity sha1-yBmscoBZpGHKscOImivjxJoATX8=
   dependencies:
     find-up "^2.1.0"
-
-points-on-curve@0.2.0, points-on-curve@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/points-on-curve/-/points-on-curve-0.2.0.tgz#7dbb98c43791859434284761330fa893cb81b4d1"
-  integrity sha512-0mYKnYYe9ZcqMCWhUjItv/oHjvgEsfKvnUTg8sAtnHr3GVy7rGkXCb6d5cSyqrWqL4k81b9CPg3urd+T7aop3A==
-
-points-on-path@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/points-on-path/-/points-on-path-0.2.1.tgz#553202b5424c53bed37135b318858eacff85dd52"
-  integrity sha512-25ClnWWuw7JbWZcgqY/gJ4FQWadKxGWk+3kR/7kD0tCaDtPPMj7oHu2ToLaVhfpnHrZzYby2w6tUA0eOIuUg8g==
-  dependencies:
-    path-data-parser "0.1.0"
-    points-on-curve "0.2.0"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -3933,21 +3915,10 @@ rollup@^2.11.2:
   optionalDependencies:
     fsevents "~2.1.2"
 
-rough-notation@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.2.0.tgz#0052ca1c311d2aab37e6471b51fe499df4aa0147"
-  integrity sha512-yqW688SRQFk8VE9kscM+IDZCbsbtHdamcNElrLloMLedxHiOpx2KkPwGsa5hMGW/hUdGEzgLwXBArSdZ0Gl53w==
-  dependencies:
-    roughjs "^4.3.1"
-
-roughjs@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/roughjs/-/roughjs-4.3.1.tgz#b7af0b205c94bc3b79ee5a7eae1e09d5063bc3fe"
-  integrity sha512-m42+OBaBR7x5UhIKyjBCnWqqkaEkBKLkXvHv4pOWJXPofvMnQY4ZcFEQlqf3coKKyZN2lfWMyx7QXSg2GD7SGA==
-  dependencies:
-    path-data-parser "^0.1.0"
-    points-on-curve "^0.2.0"
-    points-on-path "^0.2.1"
+rough-notation@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.2.2.tgz#90f5978d6fb21e067ced5c349c3d5e37d5cbbb13"
+  integrity sha512-bs7UCrfR0l0E0mYLzw+zAdr/0Fk/NwA6o300oJdcntpCicdNo8/Ktiy+cTF8FPyA/kmxvC8aynBgFQd0jMlgZw==
 
 rsvp@^4.8.4:
   version "4.8.5"
