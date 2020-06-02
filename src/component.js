@@ -23,7 +23,7 @@ export default (options) => ({
 
     tag: {
       type: String,
-      default: 'div',
+      default: undefined,
     },
 
     isShow: {
