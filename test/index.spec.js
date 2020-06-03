@@ -7,15 +7,18 @@ describe('Vue Rough Notation Test Suite', () => {
 
     expect(localVue.options.components.RoughNotation).toBeUndefined();
     expect(localVue.options.components['rough-notation']).toBeUndefined();
+    expect(localVue.options.components.RoughNotationGroup).toBeUndefined();
+    expect(localVue.options.components['rough-notation-group']).toBeUndefined();
 
     localVue.use(VueRoughNotation);
 
     expect(localVue.options.components.RoughNotation).toBeDefined();
     expect(localVue.options.components['rough-notation']).toBeDefined();
+    expect(localVue.options.components.RoughNotationGroup).toBeDefined();
+    expect(localVue.options.components['rough-notation-group']).toBeDefined();
   });
 
-  describe('component', () => {
-    // install plugin
+  describe('RoughNotation component', () => {
     const localVue = createLocalVue();
     localVue.use(VueRoughNotation);
     const RoughNotationComp = localVue.options.components.RoughNotation;
@@ -46,8 +49,8 @@ describe('Vue Rough Notation Test Suite', () => {
       expect(annotation.isShowing()).toBe(false);
     });
 
-    test('is a renderless component by default', () => {
-      expect(wrapper.html()).toEqual(domStr);
+    test('wrapped by `span` by default', () => {
+      expect(wrapper.html()).toEqual(`<span>${domStr}</span>`);
     });
   });
 });

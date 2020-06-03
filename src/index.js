@@ -1,10 +1,12 @@
 import { defaultOptions } from './options';
-import RoughNotation from './component';
+import RoughNotation from './components/RoughNotation';
+import RoughNotationGroup from './components/RoughNotationGroup';
 
 const VueRoughNotationPlugin = {
   /**
    * install function
-   * @param  {Vue} Vue
+   * @param {Vue} Vue
+   * @param {Object} options RoughNotation options
    */
   install (Vue, options = {}) {
     const finalOptions = {
@@ -16,6 +18,9 @@ const VueRoughNotationPlugin = {
 
     Vue.component('rough-notation', RoughNotationComponent);
     Vue.component('RoughNotation', RoughNotationComponent);
+
+    Vue.component('rough-notation-group', RoughNotationGroup);
+    Vue.component('RoughNotationGroup', RoughNotationGroup);
   },
 };
 

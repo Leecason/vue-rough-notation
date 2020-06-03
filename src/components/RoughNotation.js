@@ -23,7 +23,7 @@ export default (options) => ({
 
     tag: {
       type: String,
-      default: undefined,
+      default: 'span',
     },
 
     isShow: {
@@ -74,6 +74,7 @@ export default (options) => ({
     });
 
     this.$emit('init', this.annotation);
+    this.$_dispatchGroup('annotation:add');
 
     this.$watch('isShow', (value) => {
       if (value) {
@@ -85,6 +86,7 @@ export default (options) => ({
   },
 
   beforeDestroy () {
+    this.$_dispatchGroup('annotation:remove');
     this.annotation && this.annotation.remove();
   },
 
@@ -99,6 +101,23 @@ export default (options) => ({
 
     isShowing () {
       return !!(this.annotation && this.annotation.isShowing());
+    },
+
+    $_dispatchGroup (event) {
+      let parent = this.$parent || this.$root;
+      let name = parent.$options.name;
+
+      while (parent && (!name || name !== 'RoughNotationGroup')) {
+        parent = parent.$parent;
+
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+
+      if (parent) {
+        parent.$emit.call(parent, event, this.annotation);
+      }
     },
   },
 

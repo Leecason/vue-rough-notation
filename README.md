@@ -15,9 +15,8 @@ A Vue wrapper for [RoughNotation](https://github.com/pshihn/rough-notation), a s
 - [Installation](#installation)
 - [Usage](#usage)
 - [Global options](#global-options)
-- [Props](#props)
-- [Events](#events)
-- [TODO](#todo)
+- [RoughNotation Component](#roughnotation-component)
+- [RoughNotationGroup Component](#roughnotationgroup-component)
 - [License](#license)
 
 ## Demo
@@ -46,17 +45,6 @@ main.js:
 import VueRoughNotation from 'vue-rough-notation';
 
 Vue.use(VueRoughNotation);
-```
-
-template:
-
-```html
-<RoughNotation
-  :is-show="isShow"
-  type="underline"
->
-  <span>Rough Notation is awesome</span>
-</RoughNotation>
 ```
 
 ## Global options
@@ -88,9 +76,22 @@ import VueRoughNotation from 'vue-rough-notation';
 Vue.use(VueRoughNotation, options);
 ```
 
-## Props
+## RoughNotation Component
 
-### type
+### Usage
+
+```html
+<RoughNotation
+  :is-show="isShow"
+  type="underline"
+>
+  <span>Rough Notation is awesome</span>
+</RoughNotation>
+```
+
+### Props
+
+#### type
 
 **Type**: `string`
 
@@ -105,7 +106,7 @@ This is a mandatory field. It sets the annotation style. Following are the list 
 - **strike-through**: This style draws a box around the element.
 - **crossed-off**: This style draws a box around the element.
 
-### isShow
+#### isShow
 
 **Type**: `boolean`
 
@@ -115,7 +116,7 @@ This is a mandatory field. It sets the annotation style. Following are the list 
 
 Whether draws the annotation.
 
-### animate
+#### animate
 
 **Type**: `boolean`
 
@@ -125,7 +126,7 @@ Whether draws the annotation.
 
 Turn on/off animation when annotating.
 
-### animationDuration
+#### animationDuration
 
 **Type**: `number`
 
@@ -135,7 +136,7 @@ Turn on/off animation when annotating.
 
 Duration of the animation in milliseconds.
 
-### animationDelay
+#### animationDelay
 
 **Type**: `number`
 
@@ -145,7 +146,7 @@ Duration of the animation in milliseconds.
 
 Delay in animation in milliseconds.
 
-### color
+#### color
 
 **Type**: `string`
 
@@ -155,7 +156,7 @@ Delay in animation in milliseconds.
 
 Representing the color of the annotation sketch.
 
-### strokeWidth
+#### strokeWidth
 
 **Type**: `number`
 
@@ -165,7 +166,7 @@ Representing the color of the annotation sketch.
 
 Width of the annotation strokes.
 
-### padding
+#### padding
 
 **Type**: `number`
 
@@ -175,27 +176,57 @@ Width of the annotation strokes.
 
 Padding between the element and roughly where the annotation is drawn.
 
-### tag
+#### tag
 
 **Type**: `string`
 
 **Required**: `false`
 
-**Default**: `undefined'`
+**Default**: `'span'`
 
 String HTML tag name; if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
 
-## Events
+### Events
 
-### init
+#### init
 
 **Parameters**: [`Annotation Object`](https://github.com/pshihn/rough-notation#annotation-object)
 
 Called when the component is initialized.
 
-## TODO
+## RoughNotationGroup Component
 
-- [ ] Annotation Group
+### Usage
+
+```html
+<RoughNotationGroup :is-show="isShow">
+  <RoughNotation type="underline">Rough Notation</RoughNotation>
+  <RoughNotation type="box">is</RoughNotation>
+  <RoughNotation type="highlight">awesome</RoughNotation>
+</RoughNotation>
+```
+
+### Props
+
+#### isShow
+
+**Type**: `boolean`
+
+**Required**: `false`
+
+**Default**: `false`
+
+Show/Hides the annotations
+
+#### tag
+
+**Type**: `string`
+
+**Required**: `false`
+
+**Default**: `'div'`
+
+String HTML tag name; if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
 
 ## License
 
