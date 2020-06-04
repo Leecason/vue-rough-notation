@@ -13,7 +13,7 @@
 
       <p>
         <a target="_blank" href="https://github.com/Leecason/vue-rough-notation">
-          <button>View on Github and docs</button>
+          <button>View on Github + docs</button>
         </a>
       </p>
 
@@ -69,6 +69,41 @@
           <button @click="showGroup = !showGroup">annotate</button>
         </div>
       </RoughNotationGroup>
+    </div>
+
+    <div class="section" style="background-color: #eceff1;">
+      <div class="content">
+        <h3>
+          <RoughNotation
+            :is-show="showNoAnim"
+            :animate="false"
+            type="box"
+            color="#263238"
+          >No Animation</RoughNotation>
+        </h3>
+        <p>
+          Of course you don't have to animate the annotation, it just shows up when {{ ' ' }}
+          <i>
+            <RoughNotation
+              :is-show="showNoAnim"
+              :stroke-width="4"
+              :animate="false"
+              type="underline"
+              color="#263238"
+            >show</RoughNotation>
+          </i>
+          {{ '' }} is called
+        </p>
+        <button @click="showNoAnim = !showNoAnim">annotate</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <p>
+        <a target="_blank" href="https://github.com/Leecason/vue-rough-notation/tree/master/demo">
+          <button>View demo code on Github</button>
+        </a>
+      </p>
     </div>
   </div>
 </template>
@@ -153,6 +188,7 @@ export default {
       }
     ],
     showGroup: false,
+    showNoAnim: false,
   }),
 };
 </script>
