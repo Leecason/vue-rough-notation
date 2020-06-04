@@ -5,6 +5,7 @@
   "author": "Leecason",
   "scripts": {
     "test": "jest",
+    "dev": "rollup -c -w",
     "build": "rollup -c"
   },
   "main": "dist/vue-rough-notation.js",

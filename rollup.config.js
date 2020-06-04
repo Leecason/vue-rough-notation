@@ -4,6 +4,10 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 
+// `yarn build` -> `production` is true
+// `yarn dev` -> `production` is false
+const production = !process.env.ROLLUP_WATCH;
+
 export default () => [
   getConfig({
     file: path.resolve(__dirname, 'dist/vue-rough-notation.js'),
@@ -33,7 +37,7 @@ function getConfig ({
         babelHelpers: 'runtime',
         plugins: ['@babel/plugin-transform-runtime'],
       }),
-      terser(),
+      production && terser(),
     ],
   };
 }
