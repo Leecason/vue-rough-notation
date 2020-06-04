@@ -21,7 +21,9 @@ A Vue wrapper for [RoughNotation](https://github.com/pshihn/rough-notation), a s
 
 ## Demo
 
-[Demo](https://codesandbox.io/s/vue-rough-notation-q8cxq)
+[Demo Page](https://leecason.github.io/vue-rough-notation/)
+
+[Code Sandbox](https://codesandbox.io/s/vue-rough-notation-q8cxq)
 
 ## Installation
 

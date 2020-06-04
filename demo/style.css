@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+}
+
+#app {
+  font-size: 18px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto,
+    "Segoe UI", Arial, sans-serif;
+  margin: 0;
+}
+
+header {
+  position: relative;
+  max-width: 640px;
+  padding: 24px 16px 0px;
+  box-sizing: border-box;
+}
+
+.section {
+  padding: 32px 0;
+}
+
+.content {
+  box-sizing: border-box;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 640px;
+  padding: 0 16px;
+  position: relative;
+}
+
+h3 {
+  font-size: 1.6em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+h3:first-letter {
+  text-transform: uppercase;
+}
+
+button {
+  background: none;
+  font-family: inherit;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 400;
+  padding: 10px 16px;
+  border: 2px solid;
+  cursor: pointer;
+  letter-spacing: 1px;
+  outline: none;
+  user-select: none;
+}
