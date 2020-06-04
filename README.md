@@ -189,6 +189,16 @@ Padding between the element and roughly where the annotation is drawn.
 
 String HTML tag name; if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
 
+#### order
+
+**Type**: `number` | `string`
+
+**Required**: `false`
+
+**Default**: `0`
+
+Works with `RoughNotationGroup` component, **order** the animation of annotations. When show is called on the group, the annotations are animated in order. For example, an annotation with order `1` will animate before order `2`. Also you can pass `orderAnnotations` prop to `RoughNotationGroup` to customize the order function.
+
 ### Events
 
 #### init
@@ -230,6 +240,16 @@ Show/Hides the annotations
 **Default**: `'div'`
 
 String HTML tag name; if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
+
+#### orderAnnotations
+
+**Type**: `function`
+
+**Required**: `false`
+
+**Default**: `(a, b) => a - b`
+
+Customize annotations order function. Order will be sorted in ascending order by default.
 
 ## Contributing
 

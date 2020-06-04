@@ -51,17 +51,17 @@
       <RoughNotationGroup :is-show="showGroup">
         <div class="content">
           <h3>
-            <RoughNotation type="box" color="#bf360c" :strokeWidth="5">
+            <RoughNotation type="box" color="#bf360c" :strokeWidth="5" order="2">
               Annotation Group
             </RoughNotation>
           </h3>
           <p>
             Rough Notation provides a way to order the animation of annotations
             by creating an{{ '' }}
-            <RoughNotation type="highlight" color="yellow">annotation-group</RoughNotation>
+            <RoughNotation type="highlight" color="yellow" order="1">annotation-group</RoughNotation>
             . Pass the list of annotations to create a group. When{{ '' }}
             <i>
-              <RoughNotation type="underline" color="#bf360c">show</RoughNotation>
+              <RoughNotation type="underline" color="#bf360c" order="3">show</RoughNotation>
             </i>
             {{ '' }}
             is called on the group, the annotations are animated in order.

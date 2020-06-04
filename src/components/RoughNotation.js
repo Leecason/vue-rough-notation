@@ -60,6 +60,11 @@ export default (options) => ({
       type: Number,
       default: () => options.padding,
     },
+
+    order: {
+      type: [Number, String],
+      default: 0,
+    },
   },
 
   mounted () {
@@ -116,7 +121,7 @@ export default (options) => ({
       }
 
       if (parent) {
-        parent.$emit.call(parent, event, this.annotation);
+        parent.$emit.call(parent, event, this);
       }
     },
   },

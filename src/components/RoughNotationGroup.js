@@ -1,5 +1,10 @@
 import { annotationGroup } from 'rough-notation';
 
+// the default order annotation function
+function defaultOrderFn (a, b) {
+  return a - b; // asc order
+}
+
 export default {
   name: 'RoughNotationGroup',
 
@@ -13,10 +18,15 @@ export default {
       type: String,
       default: 'div',
     },
+
+    orderAnnotations: {
+      type: Function,
+      default: defaultOrderFn,
+    },
   },
 
   data: () => ({
-    annotations: [],
+    rnVueInstances: [],
   }),
 
   watch: {
@@ -28,18 +38,19 @@ export default {
       }
     },
 
-    annotations(annotations) {
+    rnVueInstances (instances) {
+      const annotations = this.$_order(instances);
       this.group = annotationGroup(annotations);
     },
   },
 
   created () {
-    this.$on('annotation:add', (annotation) => {
-      this.$_add(annotation);
+    this.$on('annotation:add', (rnVm) => {
+      this.$_add(rnVm);
     });
 
-    this.$on('annotation:remove', (annotation) => {
-      this.$_remove(annotation);
+    this.$on('annotation:remove', (rnVm) => {
+      this.$_remove(rnVm);
     });
   },
 
@@ -58,14 +69,25 @@ export default {
       this.group && this.group.hide();
     },
 
-    $_add (annotation) {
-      this.annotations.push(annotation);
+    $_order (instances) {
+      const orderFn = typeof this.orderAnnotations === 'function'
+        ? this.orderAnnotations
+        : defaultOrderFn;
+
+      return instances
+        .slice()
+        .sort((vmA, vmB) => orderFn(vmA.order, vmB.order)) // order
+        .map(vm => vm.annotation); // pluck annotation
     },
 
-    $_remove (annotation) {
-      const index = this.annotations.indexOf(annotation);
+    $_add (rnVm) {
+      this.rnVueInstances.push(rnVm);
+    },
+
+    $_remove (rnVm) {
+      const index = this.rnVueInstances.indexOf(rnVm);
       if (index > -1) {
-        this.annotations.splice(index, 1);
+        this.rnVueInstances.splice(index, 1);
       }
     },
   },
