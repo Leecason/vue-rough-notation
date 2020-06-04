@@ -17,6 +17,7 @@ A Vue wrapper for [RoughNotation](https://github.com/pshihn/rough-notation), a s
 - [Global options](#global-options)
 - [RoughNotation Component](#roughnotation-component)
 - [RoughNotationGroup Component](#roughnotationgroup-component)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Demo
@@ -229,6 +230,10 @@ Show/Hides the annotations
 **Default**: `'div'`
 
 String HTML tag name; if falsy (for example `null` or `undefined`), the component will be renderless (the content won't be wrapped in a tag), in this case, only the first child will be rendered
+
+## Contributing
+
+[CONTRIBUTING](CONTRIBUTING.md)
 
 ## License
 
