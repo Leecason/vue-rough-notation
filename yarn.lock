@@ -7656,10 +7656,10 @@ rollup@^2.11.2:
   optionalDependencies:
     fsevents "~2.1.2"
 
-rough-notation@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.2.2.tgz#90f5978d6fb21e067ced5c349c3d5e37d5cbbb13"
-  integrity sha512-bs7UCrfR0l0E0mYLzw+zAdr/0Fk/NwA6o300oJdcntpCicdNo8/Ktiy+cTF8FPyA/kmxvC8aynBgFQd0jMlgZw==
+rough-notation@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/rough-notation/-/rough-notation-0.3.0.tgz#52fb978b5ebd5f73882b63e2a9c047eb762f9af2"
+  integrity sha512-kWnQzdLtvl6adkhFHfTrSAjuSYOtaCBFECln2GwY6pnwfET/80/rvwUaP8P1SdXTl/pFq2RoegZV4FrO07pl3A==
 
 rsvp@^4.8.4:
   version "4.8.5"
