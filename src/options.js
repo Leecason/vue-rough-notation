@@ -13,4 +13,8 @@ export const defaultOptions = {
   // If you wish to specify different top, left, right, bottom paddings,
   // you can set the value to an array akin to CSS style padding [top, right, bottom, left] or just [top & bottom, left & right].
   padding: 5,
+  // By default annotations are drawn in two iterations,
+  // e.g.when underlining, drawing from left to right and then back from right to left.
+  // Setting this property can let you configure the number of iterations.
+  iterations: 2,
 };

@@ -61,6 +61,11 @@ export default (options) => ({
       default: () => options.padding,
     },
 
+    iterations: {
+      type: Number,
+      default: () => options.iterations,
+    },
+
     order: {
       type: [Number, String],
       default: 0,
@@ -76,6 +81,7 @@ export default (options) => ({
       color: this.color,
       strokeWidth: this.strokeWidth,
       padding: this.padding,
+      iterations: this.iterations,
     });
 
     this.$emit('init', this.annotation);

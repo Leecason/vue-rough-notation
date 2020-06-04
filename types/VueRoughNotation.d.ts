@@ -7,7 +7,8 @@ export interface VueRoughNotationOptions {
   animationDelay?: number;
   color?: string;
   strokeWidth?: number;
-  padding?: number
+  padding?: number;
+  iterations?: number;
 };
 
 export interface VueRoughNotationPluginObject extends PluginObject<VueRoughNotationOptions> {};
