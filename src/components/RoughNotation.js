@@ -57,7 +57,7 @@ export default (options) => ({
     },
 
     padding: {
-      type: Number,
+      type: [Number, Array],
       default: () => options.padding,
     },
 

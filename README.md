@@ -177,7 +177,7 @@ Width of the annotation strokes.
 
 **Default**: `5`(in pixels) - You can change it when install _(see above)_
 
-Padding between the element and roughly where the annotation is drawn.
+Padding between the element and roughly where the annotation is drawn. Default value is `5` (in pixels). If you wish to specify different `top`, `left`, `right`, `bottom` paddings, you can set the value to an array akin to CSS style padding `[top, right, bottom, left]` or just `[top & bottom, left & right]`.
 
 #### tag
 
