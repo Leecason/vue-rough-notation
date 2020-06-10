@@ -98,6 +98,23 @@
       </div>
     </div>
 
+    <div class="section" style="background-color: #f5f5f5;">
+      <div class="content">
+        <h3>
+          <RoughNotation
+            :is-show="true"
+            type="box"
+            :color="colorChanging"
+            :stroke-width="strokeWidthChanging"
+            :padding="paddingChanging"
+          >Reactive change</RoughNotation>
+        </h3>
+        <p>
+        Color, Stroke width, Padding will change reactively
+        </p>
+      </div>
+    </div>
+
     <div class="content">
       <p>
         <a target="_blank" href="https://github.com/Leecason/vue-rough-notation/tree/master/demo">
@@ -109,6 +126,12 @@
 </template>
 
 <script>
+Array.prototype.getNext = function () {
+	let el = this.shift();
+	this.push( el );
+	return el;
+}
+
 export default {
   name: 'VueRoughNotation',
 
@@ -189,6 +212,20 @@ export default {
     ],
     showGroup: false,
     showNoAnim: false,
+    colorChanging: '#263238',
+    strokeWidthChanging: 1,
+    paddingChanging: 1
   }),
+
+  mounted() {
+    let colors = ['#263238', '#b71c1c', '#4a148c', '#0d47a1', '#ffd54f', '#ffd54f', '#1b5e20', '#f57f17']
+    setInterval(() => {
+      this.colorChanging = colors.getNext()
+      if(this.strokeWidthChanging > 6) this.strokeWidthChanging = 0
+      this.strokeWidthChanging++
+      if(this.paddingChanging > 9) this.paddingChanging = 0
+      this.paddingChanging += 3
+    }, 500)
+  },
 };
 </script>
