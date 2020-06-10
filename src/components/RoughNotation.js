@@ -94,6 +94,16 @@ export default (options) => ({
         this.hide();
       }
     }, { immediate: true });
+
+    this.$watch('color', (value) => {
+      this.annotation.color = value
+    });
+    this.$watch('strokeWidth', (value) => {
+      this.annotation.strokeWidth = value
+    });
+    this.$watch('padding', (value) => {
+      this.annotation.padding = value
+    });
   },
 
   beforeDestroy () {
