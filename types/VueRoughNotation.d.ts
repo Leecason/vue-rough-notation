@@ -9,6 +9,6 @@ export interface VueRoughNotationOptions {
   strokeWidth?: number;
   padding?: number;
   iterations?: number;
-};
+}
 
-export interface VueRoughNotationPluginObject extends PluginObject<VueRoughNotationOptions> {};
+export interface VueRoughNotationPluginObject extends PluginObject<VueRoughNotationOptions> {}
