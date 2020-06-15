@@ -1,6 +1,6 @@
 {
   "name": "vue-rough-notation",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Vue wrapper for rough-notation",
   "author": "Leecason",
   "scripts": {
