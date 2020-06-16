@@ -68,6 +68,8 @@ The default global options are:
   strokeWidth: 1,
   // (in pixels) Padding between the element and roughly where the annotation is drawn.
   padding: 5,
+  // To annotate multiline text (each line separately), set this property to true.
+  multiline: false,
   // By default annotations are drawn in two iterations.
   iterations: 2,
 }
@@ -180,6 +182,16 @@ Width of the annotation strokes.
 **Default**: `5`(in pixels) - You can change it when install _(see above)_
 
 Padding between the element and roughly where the annotation is drawn. Default value is `5` (in pixels). If you wish to specify different `top`, `left`, `right`, `bottom` paddings, you can set the value to an array akin to CSS style padding `[top, right, bottom, left]` or just `[top & bottom, left & right]`.
+
+#### multiline
+
+**Type**: `boolean`
+
+**Required**: `false`
+
+**Default**: `false`
+
+This property only applies to inline text. To annotate multiline text (each line separately), set this property to true.
 
 #### iterations
 

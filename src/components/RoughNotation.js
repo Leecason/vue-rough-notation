@@ -61,6 +61,11 @@ export default (options) => ({
       default: () => options.padding,
     },
 
+    multiline: {
+      type: Boolean,
+      default: () => options.multiline,
+    },
+
     iterations: {
       type: Number,
       default: () => options.iterations,
@@ -81,6 +86,7 @@ export default (options) => ({
       color: this.color,
       strokeWidth: this.strokeWidth,
       padding: this.padding,
+      multiline: this.multiline,
       iterations: this.iterations,
     });
 
