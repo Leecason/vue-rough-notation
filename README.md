@@ -60,8 +60,6 @@ The default global options are:
   animate: true,
   // Duration of the animation in milliseconds.
   animationDuration: 800,
-  // Delay in animation in milliseconds.
-  animationDelay: 0,
   // Representing the color of the annotation sketch.
   color: 'currentColor',
   // Width of the annotation strokes.
@@ -72,6 +70,8 @@ The default global options are:
   multiline: false,
   // By default annotations are drawn in two iterations.
   iterations: 2,
+  // When drawing a bracket, this configures which side(s) of the element to bracket.
+  brackets: `right`,
 }
 ```
 
@@ -106,12 +106,13 @@ Vue.use(VueRoughNotation, options);
 
 This is a mandatory field. It sets the annotation style. Following are the list of supported annotation types:
 
-- **underline**: Create a sketchy underline below an element.
+- **underline**: This style creates a sketchy underline below an element.
 - **box**: This style draws a box around the element.
-- **circle**: Draw a circle around the element.
-- **highlight**: Creates a highlight effect as if maked by a highlighter.
-- **strike-through**: This style draws a box around the element.
-- **crossed-off**: This style draws a box around the element.
+- **circle**: This style draws a circle around the element.
+- **highlight**: This style creates a highlight effect as if marked by a highlighter.
+- **strike-through**: This style draws horizontal lines through the element.
+- **crossed-off**: This style draws an 'X' across the element.
+- **bracket**: This style draws a bracket around an element, usually a paragraph of text. By default on the right side, but can be configured to any or all of left, right, top, bottom.
 
 #### isShow
 
@@ -143,16 +144,6 @@ Turn on/off animation when annotating.
 
 Duration of the animation in milliseconds.
 
-#### animationDelay
-
-**Type**: `number`
-
-**Required**: `false`
-
-**Default**: `0` - You can change it when install _(see above)_.
-
-Delay in animation in milliseconds.
-
 #### color
 
 **Type**: `string`
@@ -175,7 +166,7 @@ Width of the annotation strokes.
 
 #### padding
 
-**Type**: `number`
+**Type**: `number | number[]`
 
 **Required**: `false`
 
@@ -202,6 +193,16 @@ This property only applies to inline text. To annotate multiline text (each line
 **Default**: `2` - You can change it when install _(see above)_
 
 By default annotations are drawn in two iterations, e.g. when underlining, drawing from left to right and then back from right to left. Setting this property can let you configure the number of iterations.
+
+#### brackets
+
+**Type**: `string | string[]`
+
+**Required**: `false`
+
+**Default**: `'right'`
+
+Value could be a string or an array of strings, each string being one of these values: **left**, **right**, **top**, **bottom**. When drawing a bracket, this configures which side(s) of the element to bracket. Default value is `right`.
 
 #### tag
 

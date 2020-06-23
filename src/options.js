@@ -3,8 +3,6 @@ export const defaultOptions = {
   animate: true,
   // Duration of the animation in milliseconds.
   animationDuration: 800,
-  // Delay in animation in milliseconds.
-  animationDelay: 0,
   // Representing the color of the annotation sketch.
   color: 'currentColor',
   // Width of the annotation strokes.
@@ -20,4 +18,8 @@ export const defaultOptions = {
   // e.g.when underlining, drawing from left to right and then back from right to left.
   // Setting this property can let you configure the number of iterations.
   iterations: 2,
+  // Value could be a string or an array of strings,
+  // each string being one of these values: left, right, top, bottom.
+  // When drawing a bracket, this configures which side(s) of the element to bracket.
+  brackets: 'right',
 };
