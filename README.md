@@ -60,8 +60,6 @@ The default global options are:
   animate: true,
   // Duration of the animation in milliseconds.
   animationDuration: 800,
-  // Delay in animation in milliseconds.
-  animationDelay: 0,
   // Representing the color of the annotation sketch.
   color: 'currentColor',
   // Width of the annotation strokes.
@@ -145,16 +143,6 @@ Turn on/off animation when annotating.
 **Default**: `800` - You can change it when install _(see above)_.
 
 Duration of the animation in milliseconds.
-
-#### animationDelay
-
-**Type**: `number`
-
-**Required**: `false`
-
-**Default**: `0` - You can change it when install _(see above)_.
-
-Delay in animation in milliseconds.
 
 #### color
 

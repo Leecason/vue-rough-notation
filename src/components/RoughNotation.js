@@ -42,11 +42,6 @@ export default (options) => ({
       default: () => options.animationDuration,
     },
 
-    animationDelay: {
-      type: Number,
-      default: () => options.animationDelay,
-    },
-
     color: {
       type: String,
       default: () => options.color,
@@ -88,7 +83,6 @@ export default (options) => ({
       type: this.type,
       animate: this.animate,
       animationDuration: this.animationDuration,
-      animationDelay: this.animationDelay,
       color: this.color,
       strokeWidth: this.strokeWidth,
       padding: this.padding,
