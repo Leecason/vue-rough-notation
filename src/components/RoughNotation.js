@@ -7,6 +7,7 @@ const AVAILABLE_TYPES = [
   'highlight',
   'strike-through',
   'crossed-off',
+  'bracket',
 ];
 
 export default (options) => ({
@@ -69,6 +70,11 @@ export default (options) => ({
     iterations: {
       type: Number,
       default: () => options.iterations,
+    },
+
+    brackets: {
+      type: [String, Array],
+      default: () => options.brackets,
     },
 
     order: {
