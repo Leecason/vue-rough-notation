@@ -20,6 +20,7 @@
       <p>Following are the different styles of annotations. Hit the <b>annotate</b> button in each section to see the animated annotation</p>
     </div>
 
+    <!-- types -->
     <div
       v-for="item in annotations"
       :key="item.type"
@@ -47,6 +48,32 @@
       </div>
     </div>
 
+    <!-- multiple lines -->
+    <div class="section" style="background-color: #fff8f1;">
+      <RoughNotationGroup :is-show="showMultilines">
+        <div class="content">
+          <h3>Multiple lines</h3>
+          <p>Ability to annotate inline content that can span multiple lines</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nisi hendrerit augue molestie tempus.
+            Phasellus purus quam, aliquet nec commodo quis, pharetra ut orci.{{ '' }}
+            <RoughNotation
+              :multiline="true"
+              :iterations="1"
+              :animationDuration="1500"
+              type="highlight"
+              color="#ffd54f"
+            >
+              Donec laoreet ligula nisl, placerat molestie mauris luctus id. Fusce dapibus non libero nec lobortis. Nullam iaculis nisl ac eros consequat, sit amet placerat massa vulputate. Maecenas euismod volutpat ultrices. Pellentesque felis ex, ullamcorper in felis finibus, feugiat dignissim augue.
+            </RoughNotation>
+            Integer malesuada non eros consectetur interdum. Mauris mollis non urna in porta.
+          </p>
+          <button @click="showMultilines = !showMultilines">annotate</button>
+        </div>
+      </RoughNotationGroup>
+    </div>
+
+    <!-- annotation group -->
     <div class="section" style="background-color: #fbe9e7;">
       <RoughNotationGroup :is-show="showGroup">
         <div class="content">
@@ -71,6 +98,7 @@
       </RoughNotationGroup>
     </div>
 
+    <!-- no animation -->
     <div class="section" style="background-color: #eceff1;">
       <div class="content">
         <h3>
@@ -98,6 +126,7 @@
       </div>
     </div>
 
+    <!-- reactive config -->
     <div class="section" style="background-color: #f5f5f5;">
       <div class="content">
         <h3>
@@ -210,6 +239,7 @@ export default {
         }
       }
     ],
+    showMultilines: false,
     showGroup: false,
     showNoAnim: false,
     colorChanging: '#263238',
