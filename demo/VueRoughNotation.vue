@@ -40,7 +40,9 @@
           <RoughNotation
             :type="item.type"
             :color="item.color"
+            :stroke-width="item.strokeWidth"
             :is-show="item.show"
+            :tag="item.tag"
           >{{ item.content.draw }}</RoughNotation>
           {{ '' }} {{ item.content.p2 }}
         </p>
@@ -229,13 +231,27 @@ export default {
       {
         show: false,
         type: "crossed-off",
-        bg: "#fffde7",
+        bg: "#e0f2f1",
         color: "#f57f17",
         content: {
           title: "crossed-off",
           p1: "To symbolize rejection, use a",
           draw: "crossed-off",
           p2: "effect on an element."
+        }
+      },
+      {
+        show: false,
+        type: "bracket",
+        bg: "#fffde7",
+        color: "red",
+        strokeWidth: 2,
+        tag: 'div',
+        content: {
+          title: "bracket",
+          p1: "Create a hand-drawn bracket around a block (like a paragraph of text) on one or multiple sides of the block.",
+          draw: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nisi hendrerit augue molestie tempus. Phasellus purus quam, aliquet nec commodo quis, pharetra ut orci. Donec laoreet ligula nisl, placerat molestie mauris luctus id. Fusce dapibus non libero nec lobortis. Nullam iaculis nisl ac eros consequat, sit amet placerat massa vulputate.",
+          p2: ""
         }
       }
     ],
