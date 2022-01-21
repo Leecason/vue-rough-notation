@@ -1,11 +1,14 @@
+import { defineComponent, h } from 'vue-demi';
 import { annotationGroup } from 'rough-notation';
+import mitt from 'mitt';
+import { ADD_ANNOTATION, REMOVE_ANNOTATION } from '../constants';
 
 // the default order annotation function
-function defaultOrderFn (a, b) {
+function defaultOrderFn(a, b) {
   return a - b; // asc order
 }
 
-export default {
+export default defineComponent({
   name: 'RoughNotationGroup',
 
   props: {
@@ -25,12 +28,14 @@ export default {
     },
   },
 
-  data: () => ({
-    rnVueInstances: [],
-  }),
+  data() {
+    return {
+      rnVueInstances: [],
+    };
+  },
 
   watch: {
-    isShow (value) {
+    isShow(value) {
       if (value) {
         this.show();
       } else {
@@ -38,53 +43,60 @@ export default {
       }
     },
 
-    rnVueInstances (instances) {
+    rnVueInstances(instances) {
       const annotations = this.$_order(instances);
       this.group = annotationGroup(annotations);
     },
   },
 
-  created () {
-    this.$on('annotation:add', (rnVm) => {
+  created() {
+    this.emitter = mitt();
+
+    this.emitter.on(ADD_ANNOTATION, (rnVm) => {
       this.$_add(rnVm);
     });
 
-    this.$on('annotation:remove', (rnVm) => {
+    this.emitter.on(REMOVE_ANNOTATION, (rnVm) => {
       this.$_remove(rnVm);
     });
   },
 
-  mounted () {
+  mounted() {
     if (this.isShow) {
       this.show();
     }
   },
 
+  beforeUnmount() {
+    this.emitter.all.clear();
+  },
+
   methods: {
-    show () {
+    show() {
       this.group && this.group.show();
     },
 
-    hide () {
+    hide() {
       this.group && this.group.hide();
     },
 
-    $_order (instances) {
-      const orderFn = typeof this.orderAnnotations === 'function'
-        ? this.orderAnnotations
-        : defaultOrderFn;
+    $_order(instances) {
+      const orderFn =
+        typeof this.orderAnnotations === 'function'
+          ? this.orderAnnotations
+          : defaultOrderFn;
 
       return instances
         .slice()
         .sort((vmA, vmB) => orderFn(vmA.order, vmB.order)) // order
-        .map(vm => vm.annotation); // pluck annotation
+        .map((vm) => vm.annotation); // pluck annotation
     },
 
-    $_add (rnVm) {
-      this.rnVueInstances.push(rnVm);
+    $_add(rnVm) {
+      this.rnVueInstances = this.rnVueInstances.concat(rnVm);
     },
 
-    $_remove (rnVm) {
+    $_remove(rnVm) {
       const index = this.rnVueInstances.indexOf(rnVm);
       if (index > -1) {
         this.rnVueInstances.splice(index, 1);
@@ -92,8 +104,8 @@ export default {
     },
   },
 
-  render(h) {
-    const slot = this.$slots.default;
+  render() {
+    const slot = this.$slots.default();
 
     if (this.tag) {
       return h(this.tag, null, slot);
@@ -101,4 +113,4 @@ export default {
 
     return slot && slot[0];
   },
-};
+});

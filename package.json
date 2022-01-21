@@ -39,7 +39,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "rough-notation": "^0.4.0"
+    "mitt": "^3.0.0",
+    "rough-notation": "^0.4.0",
+    "vue-demi": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.10.1",
@@ -50,13 +52,18 @@
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-typescript": "^4.1.2",
     "@types/vue": "^2.0.0",
-    "@vue/cli-service": "^4.4.1",
-    "@vue/test-utils": "^1.0.3",
-    "babel-jest": "^26.0.1",
-    "jest": "^26.0.1",
+    "@vue/cli-service": "^4.5.15",
     "rollup": "^2.11.2",
     "rollup-plugin-terser": "^6.1.0",
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "vue": "^3.2.27"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   }
 }

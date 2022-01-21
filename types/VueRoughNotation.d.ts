@@ -1,6 +1,13 @@
-import { PluginObject } from "vue";
+import { Plugin } from 'vue';
 
-export type RoughNotationTypes = 'underline' | 'box' | 'circle' | 'highlight' | 'strike-through' | 'crossed-off' | 'bracket';
+export type RoughNotationTypes =
+  | 'underline'
+  | 'box'
+  | 'circle'
+  | 'highlight'
+  | 'strike-through'
+  | 'crossed-off'
+  | 'bracket';
 
 export interface VueRoughNotationOptions {
   animate?: boolean;
@@ -12,4 +19,4 @@ export interface VueRoughNotationOptions {
   brackets?: string;
 }
 
-export interface VueRoughNotationPluginObject extends PluginObject<VueRoughNotationOptions> {}
+export type VueRoughNotationPluginObject = Plugin;

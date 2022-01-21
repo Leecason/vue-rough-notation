@@ -1,12 +1,9 @@
-import Vue from 'vue';
+import { createApp } from 'vue-demi';
 import VueRoughNotation from '../src';
 import App from './App.vue';
 import './style.css';
 
-Vue.use(VueRoughNotation);
+const app = createApp(App);
 
-Vue.config.productionTip = false
-
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+app.use(VueRoughNotation);
+app.mount('#app');

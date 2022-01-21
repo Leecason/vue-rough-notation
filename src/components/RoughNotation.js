@@ -1,4 +1,6 @@
+import { defineComponent, h } from 'vue-demi';
 import { annotate } from 'rough-notation';
+import { ADD_ANNOTATION, REMOVE_ANNOTATION } from '../constants';
 
 const AVAILABLE_TYPES = [
   'underline',
@@ -10,151 +12,158 @@ const AVAILABLE_TYPES = [
   'bracket',
 ];
 
-export default (options) => ({
-  name: 'RoughNotation',
+export default (options) =>
+  defineComponent({
+    name: 'RoughNotation',
 
-  props: {
-    type: {
-      type: String,
-      required: true,
-      validator (type) {
-        return AVAILABLE_TYPES.indexOf(type) > -1;
+    emits: ['init'],
+
+    props: {
+      type: {
+        type: String,
+        required: true,
+        validator(type) {
+          return AVAILABLE_TYPES.indexOf(type) > -1;
+        },
+      },
+
+      tag: {
+        type: String,
+        default: 'span',
+      },
+
+      isShow: {
+        type: Boolean,
+        default: false,
+      },
+
+      animate: {
+        type: Boolean,
+        default: () => options.animate,
+      },
+
+      animationDuration: {
+        type: Number,
+        default: () => options.animationDuration,
+      },
+
+      color: {
+        type: String,
+        default: () => options.color,
+      },
+
+      strokeWidth: {
+        type: Number,
+        default: () => options.strokeWidth,
+      },
+
+      padding: {
+        type: [Number, Array],
+        default: () => options.padding,
+      },
+
+      multiline: {
+        type: Boolean,
+        default: () => options.multiline,
+      },
+
+      iterations: {
+        type: Number,
+        default: () => options.iterations,
+      },
+
+      brackets: {
+        type: [String, Array],
+        default: () => options.brackets,
+      },
+
+      order: {
+        type: [Number, String],
+        default: 0,
       },
     },
 
-    tag: {
-      type: String,
-      default: 'span',
+    mounted() {
+      this.annotation = annotate(this.$el, {
+        type: this.type,
+        animate: this.animate,
+        animationDuration: this.animationDuration,
+        color: this.color,
+        strokeWidth: this.strokeWidth,
+        padding: this.padding,
+        multiline: this.multiline,
+        iterations: this.iterations,
+      });
+
+      this.$emit('init', this.annotation);
+      this.$_dispatchGroup(ADD_ANNOTATION);
+
+      this.$watch(
+        'isShow',
+        (value) => {
+          if (value) {
+            this.show();
+          } else {
+            this.hide();
+          }
+        },
+        { immediate: true }
+      );
+
+      this.$watch('color', (value) => {
+        this.annotation.color = value;
+      });
+      this.$watch('strokeWidth', (value) => {
+        this.annotation.strokeWidth = value;
+      });
+      this.$watch('padding', (value) => {
+        this.annotation.padding = value;
+      });
     },
 
-    isShow: {
-      type: Boolean,
-      default: false,
+    beforeUnmount() {
+      this.$_dispatchGroup(REMOVE_ANNOTATION);
+      this.annotation && this.annotation.remove();
     },
 
-    animate: {
-      type: Boolean,
-      default: () => options.animate,
-    },
+    methods: {
+      show() {
+        this.annotation && this.annotation.show();
+      },
 
-    animationDuration: {
-      type: Number,
-      default: () => options.animationDuration,
-    },
+      hide() {
+        this.annotation && this.annotation.hide();
+      },
 
-    color: {
-      type: String,
-      default: () => options.color,
-    },
+      isShowing() {
+        return !!(this.annotation && this.annotation.isShowing());
+      },
 
-    strokeWidth: {
-      type: Number,
-      default: () => options.strokeWidth,
-    },
+      $_dispatchGroup(event) {
+        let parent = this.$parent || this.$root;
+        let name = parent.$options.name;
 
-    padding: {
-      type: [Number, Array],
-      default: () => options.padding,
-    },
+        while (parent && (!name || name !== 'RoughNotationGroup')) {
+          parent = parent.$parent;
 
-    multiline: {
-      type: Boolean,
-      default: () => options.multiline,
-    },
-
-    iterations: {
-      type: Number,
-      default: () => options.iterations,
-    },
-
-    brackets: {
-      type: [String, Array],
-      default: () => options.brackets,
-    },
-
-    order: {
-      type: [Number, String],
-      default: 0,
-    },
-  },
-
-  mounted () {
-    this.annotation = annotate(this.$el, {
-      type: this.type,
-      animate: this.animate,
-      animationDuration: this.animationDuration,
-      color: this.color,
-      strokeWidth: this.strokeWidth,
-      padding: this.padding,
-      multiline: this.multiline,
-      iterations: this.iterations,
-    });
-
-    this.$emit('init', this.annotation);
-    this.$_dispatchGroup('annotation:add');
-
-    this.$watch('isShow', (value) => {
-      if (value) {
-        this.show();
-      } else {
-        this.hide();
-      }
-    }, { immediate: true });
-
-    this.$watch('color', (value) => {
-      this.annotation.color = value
-    });
-    this.$watch('strokeWidth', (value) => {
-      this.annotation.strokeWidth = value
-    });
-    this.$watch('padding', (value) => {
-      this.annotation.padding = value
-    });
-  },
-
-  beforeDestroy () {
-    this.$_dispatchGroup('annotation:remove');
-    this.annotation && this.annotation.remove();
-  },
-
-  methods: {
-    show () {
-      this.annotation && this.annotation.show();
-    },
-
-    hide () {
-      this.annotation && this.annotation.hide();
-    },
-
-    isShowing () {
-      return !!(this.annotation && this.annotation.isShowing());
-    },
-
-    $_dispatchGroup (event) {
-      let parent = this.$parent || this.$root;
-      let name = parent.$options.name;
-
-      while (parent && (!name || name !== 'RoughNotationGroup')) {
-        parent = parent.$parent;
+          if (parent) {
+            name = parent.$options.name;
+          }
+        }
 
         if (parent) {
-          name = parent.$options.name;
+          parent.emitter.emit(event, this);
         }
-      }
-
-      if (parent) {
-        parent.$emit.call(parent, event, this);
-      }
+      },
     },
-  },
 
-  render (h) {
-    const slot = this.$slots.default;
+    render() {
+      const slot = this.$slots.default();
 
-    if (this.tag) {
-      return h(this.tag, null, slot);
-    }
+      if (this.tag) {
+        return h(this.tag, null, slot);
+      }
 
-    return slot && slot[0];
-  },
-});
+      return slot && slot[0];
+    },
+  });
