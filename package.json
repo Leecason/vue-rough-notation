@@ -4,7 +4,6 @@
   "description": "Vue wrapper for rough-notation",
   "author": "Leecason",
   "scripts": {
-    "test": "jest",
     "demo": "vue-cli-service serve --open",
     "demo:build": "vue-cli-service build",
     "dev": "rollup -c -w",
