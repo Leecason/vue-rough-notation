@@ -34,17 +34,22 @@ NPM:
 npm install --save vue-rough-notation
 ```
 
-CDN:
-
-```js
-<script src="https://unpkg.com/vue-rough-notation/dist/vue-rough-notation.js"></script>
-```
-
 ## Usage
 
-main.js:
+### Vue3
 
 ```js
+import { createApp } from 'vue'
+import VueRoughNotation from 'vue-rough-notation';
+
+const app = createApp(...);
+app.use(VueRoughNotation);
+```
+
+### Vue2
+
+```js
+import Vue from 'vue';
 import VueRoughNotation from 'vue-rough-notation';
 
 Vue.use(VueRoughNotation);
@@ -77,6 +82,16 @@ The default global options are:
 
 You can change the options when install:
 
+- Vue3
+
+```js
+import VueRoughNotation from 'vue-rough-notation';
+
+app.use(VueRoughNotation, options);
+```
+
+- Vue2
+
 ```js
 import VueRoughNotation from 'vue-rough-notation';
 
@@ -88,10 +103,7 @@ Vue.use(VueRoughNotation, options);
 ### Usage
 
 ```html
-<RoughNotation
-  :is-show="isShow"
-  type="underline"
->
+<RoughNotation :is-show="isShow" type="underline">
   <span>Rough Notation is awesome</span>
 </RoughNotation>
 ```
