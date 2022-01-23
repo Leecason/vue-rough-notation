@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue-demi';
+import { defineComponent, h, isVue2 } from 'vue-demi';
 import { annotate } from 'rough-notation';
 import { ADD_ANNOTATION, REMOVE_ANNOTATION } from '../constants';
 
@@ -158,7 +158,7 @@ export default (options) =>
     },
 
     render() {
-      const slot = this.$slots.default();
+      const slot = isVue2 ? this.$slots.default : this.$slots.default();
 
       if (this.tag) {
         return h(this.tag, null, slot);
