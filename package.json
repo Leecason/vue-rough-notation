@@ -1,7 +1,7 @@
 {
   "name": "vue-rough-notation",
   "version": "1.0.0",
-  "description": "Vue wrapper for rough-notation",
+  "description": "Vue wrapper for rough-notation, support Vue2 & 3",
   "author": "Leecason",
   "scripts": {
     "demo": "vue-cli-service serve --open",
