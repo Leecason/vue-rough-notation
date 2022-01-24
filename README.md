@@ -34,6 +34,12 @@ NPM:
 npm install --save vue-rough-notation
 ```
 
+To make `vue-rough-notation` work for Vue 2, you need to have `@vue/composition-api` installed:
+
+```shell
+npm install --save @vue/composition-api
+```
+
 ## Usage
 
 ### Vue3
@@ -50,8 +56,10 @@ app.use(VueRoughNotation);
 
 ```js
 import Vue from 'vue';
+import VueCompositionAPI from '@vue/composition-api';
 import VueRoughNotation from 'vue-rough-notation';
 
+Vue.use(VueCompositionAPI);
 Vue.use(VueRoughNotation);
 ```
 
