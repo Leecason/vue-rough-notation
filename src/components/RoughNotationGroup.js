@@ -104,14 +104,23 @@ export default defineComponent({
     },
   },
 
-  render() {
-    const slot =
-      typeof this.$slots.default === 'function'
-        ? this.$slots.default()
-        : this.$slots.default;
+  render(h2) {
+    // vue2
+    if (h2 && typeof h2 === 'function') {
+      const slot = this.$slots.default;
+
+      if (this.tag) {
+        return h2(this.tag, {}, slot);
+      }
+
+      return slot && slot[0];
+    }
+
+    // vue3
+    const slot = this.$slots.default();
 
     if (this.tag) {
-      return h(this.tag, null, slot);
+      return h(this.tag, {}, slot);
     }
 
     return slot && slot[0];
