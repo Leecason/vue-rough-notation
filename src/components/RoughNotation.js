@@ -157,14 +157,14 @@ export default (options) =>
       },
     },
 
-    render(h2) {
+    render() {
       const slot =
         typeof this.$slots.default === 'function'
           ? this.$slots.default()
           : this.$slots.default;
 
       if (this.tag) {
-        return h2(this.tag, null, slot);
+        return h(this.tag, null, slot);
       }
 
       return slot && slot[0];
