@@ -110,7 +110,7 @@ export default defineComponent({
       const slot = this.$slots.default;
 
       if (this.tag) {
-        return h2(this.tag, {}, slot);
+        return h2(this.tag, null, slot);
       }
 
       return slot && slot[0];

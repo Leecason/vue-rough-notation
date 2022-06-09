@@ -158,13 +158,22 @@ export default (options) =>
     },
 
     render(h2) {
-      const slot =
-        typeof this.$slots.default === 'function'
-          ? this.$slots.default()
-          : this.$slots.default;
+      // vue2
+      if (h2 && typeof h2 === 'function') {
+        const slot = this.$slots.default;
+
+        if (this.tag) {
+          return h2(this.tag, null, slot);
+        }
+
+        return slot && slot[0];
+      }
+
+      // vue3
+      const slot = this.$slots.default();
 
       if (this.tag) {
-        return h2(this.tag, null, slot);
+        return h(this.tag, null, slot);
       }
 
       return slot && slot[0];
